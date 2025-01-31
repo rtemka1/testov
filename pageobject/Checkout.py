@@ -2,10 +2,10 @@ from lib.unit import Unit
 from selene import by
 
 
-class MainHeader:
+class Checkout:
     def __init__(self, unit: Unit):
         self._unit = unit
 
     @property
-    def catalog_show_btn(self):
-        return self._unit.find_elem_by_selector('.rs-catalog-show')
+    def clear_basket(self):
+        return self._unit.find_elem_by_selector('.cart-checkout-clear rs-clean')

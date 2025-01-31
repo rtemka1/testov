@@ -3,7 +3,7 @@ import time
 
 def test_login(driver):
     driver.open()
-    driver.main_header.lk_btn.should(be.visible).click()
+    driver.head_bar.lk_btn.should(be.visible).click()
     driver.dropdown_menu.login_btn.should(be.visible).click()
     driver.modal_login.login_input.click().clear()
     driver.modal_login.login_input.type("qwerty@example.com")
