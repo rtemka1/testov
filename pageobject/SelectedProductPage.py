@@ -9,3 +9,7 @@ class SelectedProductPage:
 
     def add_to_basket(self,idx):
         return self._unit.find_elem_by_selector(f'button[data-href="/cart/?add={idx}"]')
+
+    @property
+    def add_to_favourite(self):
+        return self._unit.find_elem_by_selector('.product-fav')

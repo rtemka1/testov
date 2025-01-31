@@ -1,11 +1,13 @@
 from selene import Browser, by
 from lib.unit import Unit
 from pageobject.Checkout import Checkout
+from pageobject.FavouritePage import FavouritePage
 from pageobject.HeadDropdownCatalog import HeadDropdownCatalog
 from pageobject.LoggedDropdown import LoggedDropdown
 from pageobject.HeadBar import HeadBar
 from pageobject.DropdownMenu import DropdownMenu
 from pageobject.MainHeader import MainHeader
+from pageobject.ModalAutocomplete import ModalAutocomplete
 from pageobject.ModalLogin import ModalLogin
 from pageobject.ModalSubmitBasket import ModalSubmitBasket
 from pageobject.NotebooksInModal import NotebooksInModal
@@ -14,6 +16,7 @@ from pageobject.PlanshetsInModal import PlanshetsInModal
 from pageobject.ProductsList import ProductsList
 from pageobject.ProectorsInModal import ProectorsInModal
 from pageobject.SecondDropdownCatalog import SecondDropdownCatalog
+from pageobject.SelectedFavorItem import SelectedFavorItem
 from pageobject.SelectedProductPage import SelectedProductPage
 from pageobject.BasketProductPage import BasketProductPage
 
@@ -84,3 +87,14 @@ class Finder(Unit):
     @property
     def modal_submit_basket(self) -> ModalSubmitBasket:
         return ModalSubmitBasket(self.find_unit_by_selector('.modal-content'))
+
+    @property
+    def modal_autocomplete(self) -> ModalAutocomplete:
+        return ModalAutocomplete(self.find_unit_by_selector('.rs-autocomplete-result'))
+
+    @property
+    def favourite_page(self) -> FavouritePage:
+        return FavouritePage(self.find_unit_by_selector('.row-cols-xxl-4'))
+
+    def selected_favor_item(self, idx) -> SelectedFavorItem:
+        return SelectedFavorItem(self.find_unit_by_selector(f'div[data-id="{idx}"]'))

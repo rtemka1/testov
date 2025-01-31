@@ -9,3 +9,11 @@ class MainHeader:
     @property
     def catalog_show_btn(self):
         return self._unit.find_elem_by_selector('.rs-catalog-show')
+
+    @property
+    def search_in_catalog_input(self):
+        return self._unit.find_elem_by_selector('.form-control')
+
+    @property
+    def favourite_show_btn(self):
+        return self._unit.find_elem_by_selector(by.text("Избранное"))
